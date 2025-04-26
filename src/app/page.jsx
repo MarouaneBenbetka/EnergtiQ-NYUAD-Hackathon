@@ -6,7 +6,7 @@ export default function Home() {
 		<VideoBackground videoSrc="/video/video.mp4">
 			<div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
 				<h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mt-16 mb-8">
-					LIKE & SUBSCRIBE
+					The Quantum Solution to All Your Projects
 				</h1>
 				<p className="text-xl md:text-2xl text-white max-w-2xl mb-8">
 					Experience the adventure of a lifetime with our exclusive

@@ -8,7 +8,7 @@ export default function Navbar() {
 	const pathname = usePathname();
 
 	return (
-		<header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm">
+		<header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-blue-500 to-blue-300 backdrop-blur-md shadow-md">
 			<div className="container mx-auto flex items-center justify-between py-4 px-4">
 				<Link
 					href="/"
