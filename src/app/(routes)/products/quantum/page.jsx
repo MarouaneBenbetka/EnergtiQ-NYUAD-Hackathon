@@ -62,8 +62,6 @@ export default function QuantumPage() {
 	const molecules = [
 		{ value: "h2", label: "H₂ (Hydrogen)" },
 		{ value: "li", label: "Li (Lithium)" },
-		{ value: "na", label: "Na (Sodium)" },
-		{ value: "k", label: "K (Potassium)" },
 	];
 
 	const diagrams = [
@@ -141,6 +139,7 @@ export default function QuantumPage() {
 											<SelectItem
 												key={molecule.value}
 												value={molecule.value}
+												className="text-white"
 											>
 												{molecule.label}
 											</SelectItem>

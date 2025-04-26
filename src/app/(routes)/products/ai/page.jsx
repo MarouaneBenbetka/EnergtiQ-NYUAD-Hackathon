@@ -15,20 +15,19 @@ export default function AIPage() {
 
 	// Update the map URL when city or cluster size changes
 	useEffect(() => {
-		// This would be the path to your HTML maps
-		setMapUrl(`/maps/${city}-cluster-${clusterSize}.html`);
+		// Map city values to actual city names for the file path
+		const cityName = city === "city1" ? "abu_dhabi" : "abu_dhabi";
+		// Set the map URL with the correct city name and cluster size
+		setMapUrl(`/maps/${cityName}_${clusterSize}.html`);
 	}, [city, clusterSize]);
 
 	// Handle slider value change
 	const handleSliderChange = (value) => {
-		// Find the closest cluster size (5, 10, 15, 20) to the slider value
-		const sizes = [5, 10, 15, 20];
-		const closest = sizes.reduce((prev, curr) => {
-			return Math.abs(curr - value[0]) < Math.abs(prev - value[0])
-				? curr
-				: prev;
-		});
-		setClusterSize(closest);
+		// Directly set to increments of 5 (5, 10, 15, 20)
+		const newValue = Math.round(value[0] / 5) * 5;
+		// Ensure the value is within our range
+		const clampedValue = Math.max(5, Math.min(20, newValue));
+		setClusterSize(clampedValue);
 	};
 
 	return (
@@ -90,7 +89,7 @@ export default function AIPage() {
 										defaultValue={[10]}
 										min={5}
 										max={20}
-										step={1}
+										step={5}
 										onValueChange={handleSliderChange}
 										className="mb-2"
 									/>
@@ -107,9 +106,11 @@ export default function AIPage() {
 						{/* Map Display */}
 						<div className="bg-gray-900 rounded-lg overflow-hidden border border-gray-700 h-[500px] w-full">
 							<iframe
-								src={"/maps/abu_dhabi_10.html"}
+								src={mapUrl}
 								className="w-full h-full"
-								title={`Energy distribution map for ${city} with cluster size ${clusterSize}`}
+								title={`Energy distribution map for ${
+									city === "city1" ? "Abudhabi" : "Dubai"
+								} with cluster size ${clusterSize}`}
 							/>
 						</div>
 
