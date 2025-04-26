@@ -1,55 +1,156 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { MapPin } from "lucide-react";
+import { Sun, Menu, X } from "lucide-react";
 
 export default function Navbar() {
-	const pathname = usePathname();
+	const [isScrolled, setIsScrolled] = useState(false);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 10) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	const toggleMobileMenu = () => {
+		setIsMobileMenuOpen(!isMobileMenuOpen);
+	};
 
 	return (
-		<header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-blue-500 to-blue-300 backdrop-blur-md shadow-md">
-			<div className="container mx-auto flex items-center justify-between py-4 px-4">
+		<header
+			className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+				isScrolled
+					? "bg-black/90 backdrop-blur-sm py-3"
+					: "bg-transparent py-5"
+			}`}
+		>
+			<div className="container mx-auto px-4 flex items-center justify-between">
 				<Link
 					href="/"
 					className="flex items-center text-white text-2xl font-bold"
 				>
-					TRVL <MapPin className="ml-2 h-6 w-6" />
+					<Sun className="h-8 w-8 text-orange-500 mr-3" />
+					<span>EnergetiQ</span>
+					<span className="text-orange-500 mx-1">-</span>
+					<span>Qطاقة</span>
 				</Link>
 
+				{/* Desktop Navigation */}
 				<nav className="hidden md:flex items-center space-x-8">
-					<Link
-						href="/"
-						className={`text-white hover:text-gray-300 transition-colors ${
-							pathname === "/" ? "font-semibold" : ""
-						}`}
+					<a
+						href="#hero"
+						className="text-white hover:text-orange-400 transition-colors"
 					>
 						Home
-					</Link>
-					<Link
-						href="/services"
-						className={`text-white hover:text-gray-300 transition-colors ${
-							pathname === "/services" ? "font-semibold" : ""
-						}`}
+					</a>
+					<a
+						href="#problem"
+						className="text-white hover:text-orange-400 transition-colors"
 					>
-						Services
-					</Link>
-					<Link
-						href="/products"
-						className={`text-white hover:text-gray-300 transition-colors ${
-							pathname === "/products" ? "font-semibold" : ""
-						}`}
+						Problem
+					</a>
+					<a
+						href="#solution"
+						className="text-white hover:text-orange-400 transition-colors"
 					>
-						Products
-					</Link>
+						Solution
+					</a>
+					<a
+						href="#sdgs"
+						className="text-white hover:text-orange-400 transition-colors"
+					>
+						SDGs
+					</a>
+					<a
+						href="#about"
+						className="text-white hover:text-orange-400 transition-colors"
+					>
+						About Us
+					</a>
+					<a
+						href="#contact"
+						className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
+					>
+						Contact
+					</a>
 				</nav>
 
-				<Link
-					href="/signup"
-					className="border border-white text-white px-6 py-2 hover:bg-white hover:text-black transition-colors"
+				{/* Mobile Menu Button */}
+				<button
+					className="md:hidden text-white"
+					onClick={toggleMobileMenu}
 				>
-					SIGN UP
-				</Link>
+					{isMobileMenuOpen ? (
+						<X className="h-6 w-6" />
+					) : (
+						<Menu className="h-6 w-6" />
+					)}
+				</button>
+			</div>
+
+			{/* Mobile Navigation */}
+			<div
+				className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-sm transition-all duration-300 ${
+					isMobileMenuOpen
+						? "max-h-screen py-4"
+						: "max-h-0 overflow-hidden py-0"
+				}`}
+			>
+				<nav className="container mx-auto px-4 flex flex-col space-y-4">
+					<a
+						href="#hero"
+						className="text-white hover:text-orange-400 transition-colors py-2"
+						onClick={toggleMobileMenu}
+					>
+						Home
+					</a>
+					<a
+						href="#problem"
+						className="text-white hover:text-orange-400 transition-colors py-2"
+						onClick={toggleMobileMenu}
+					>
+						Problem
+					</a>
+					<a
+						href="#solution"
+						className="text-white hover:text-orange-400 transition-colors py-2"
+						onClick={toggleMobileMenu}
+					>
+						Solution
+					</a>
+					<a
+						href="#sdgs"
+						className="text-white hover:text-orange-400 transition-colors py-2"
+						onClick={toggleMobileMenu}
+					>
+						SDGs
+					</a>
+					<a
+						href="#about"
+						className="text-white hover:text-orange-400 transition-colors py-2"
+						onClick={toggleMobileMenu}
+					>
+						About Us
+					</a>
+					<a
+						href="#contact"
+						className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors inline-block"
+						onClick={toggleMobileMenu}
+					>
+						Contact
+					</a>
+				</nav>
 			</div>
 		</header>
 	);

@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={inter.className}>
 				<Navbar />
-				<main className="relative min-h-screen">{children}</main>
+				<main className="relative min-h-screen scroll-smooth">
+					{children}
+				</main>
 				<ChatBubble />
 			</body>
 		</html>

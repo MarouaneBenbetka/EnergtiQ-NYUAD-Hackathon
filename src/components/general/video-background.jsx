@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 export default function VideoBackground({ videoSrc, children }) {
-	const videoRef = useRef(null);
+	const videoRef = useRef();
 
 	useEffect(() => {
 		if (videoRef.current) {
@@ -24,7 +24,7 @@ export default function VideoBackground({ videoSrc, children }) {
 				<source src={videoSrc} type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
-			<div className="absolute top-0 left-0 w-full h-full bg-black/30" />
+			<div className="absolute top-0 left-0 w-full h-full bg-black/50" />
 			<div className="relative z-10 min-h-screen w-full">{children}</div>
 		</div>
 	);
