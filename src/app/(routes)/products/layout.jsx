@@ -5,6 +5,7 @@ import ProductsNavbar from "@/components/general/products-navbar";
 import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 import ChatBubble from "@/components/ai/chat-bubble";
+import Image from "next/image";
 
 export default function ProductsLayout({ children }) {
 	return (
@@ -12,7 +13,7 @@ export default function ProductsLayout({ children }) {
 			className={`min-h-screen bg-gray-950 text-white ${inter.className}`}
 		>
 			<ProductsNavbar />
-			<main>{children}</main>
+			<main className="pt-20">{children}</main>
 
 			{/* Products Footer */}
 			<footer className="bg-gray-900 py-8 border-t border-gray-800">
@@ -24,9 +25,23 @@ export default function ProductsLayout({ children }) {
 								className="flex items-center text-white text-xl font-bold"
 							>
 								<Sun className="h-6 w-6 text-orange-500 mr-2" />
-								<span>EnergetiQ</span>
+								<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+									<Image
+										src="/logos/english_white_logo.png"
+										alt="Logo"
+										fill
+										className="object-contain p-2"
+									/>
+								</div>
 								<span className="text-orange-500 mx-1">-</span>
-								<span>Qطاقة</span>
+								<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+									<Image
+										src="/logos/arabic_white_logo.png"
+										alt="Logo"
+										fill
+										className="object-contain p-2"
+									/>
+								</div>
 							</Link>
 							<p className="text-gray-400 mt-2">
 								AI-Powered Quantum Solar Revolution

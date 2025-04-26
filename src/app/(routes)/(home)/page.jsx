@@ -79,7 +79,13 @@ export default function Home() {
 							</h2>
 							<div className="h-1 w-20 bg-orange-500 mb-8"></div>
 							<p className="text-lg text-gray-300 mb-6">
-							Using solar energy is an excellent way to harness clean, renewable power—but it comes with a catch: when battery packs overheat during charge–discharge cycles, they suffer accelerated capacity loss, safety risks like thermal runaway, and higher cooling and maintenance costs.
+								Using solar energy is an excellent way to
+								harness clean, renewable power—but it comes with
+								a catch: when battery packs overheat during
+								charge–discharge cycles, they suffer accelerated
+								capacity loss, safety risks like thermal
+								runaway, and higher cooling and maintenance
+								costs.
 							</p>
 							<ul className="space-y-4">
 								<li className="flex items-start">
@@ -87,7 +93,9 @@ export default function Home() {
 										<Battery className="h-5 w-5 text-orange-500" />
 									</div>
 									<p className="text-gray-300">
-									Accelerated capacity fade, reducing the amount of energy the system can store and deliver over its lifetime.
+										Accelerated capacity fade, reducing the
+										amount of energy the system can store
+										and deliver over its lifetime.
 									</p>
 								</li>
 								<li className="flex items-start">
@@ -95,7 +103,9 @@ export default function Home() {
 										<Sun className="h-5 w-5 text-orange-500" />
 									</div>
 									<p className="text-gray-300">
-									Elevated safety risks, including thermal runaway, venting, or even fires if temperatures aren't carefully managed.
+										Elevated safety risks, including thermal
+										runaway, venting, or even fires if
+										temperatures aren't carefully managed.
 									</p>
 								</li>
 								<li className="flex items-start">
@@ -103,7 +113,10 @@ export default function Home() {
 										<BarChart3 className="h-5 w-5 text-orange-500" />
 									</div>
 									<p className="text-gray-300">
-									Increased operational costs and downtime, as active cooling systems and safety interlocks add expense and can interrupt energy availability.
+										Increased operational costs and
+										downtime, as active cooling systems and
+										safety interlocks add expense and can
+										interrupt energy availability.
 									</p>
 								</li>
 							</ul>
@@ -181,10 +194,10 @@ export default function Home() {
 								</h3>
 							</div>
 							<p className="text-gray-300 mb-6">
-								We integrate AI/ML to optimize solar panel and battery placement 
-								through analysing temperature and population density,
-								and enhance power grids for dynamic energy
-								distribution.
+								We integrate AI/ML to optimize solar panel and
+								battery placement through analysing temperature
+								and population density, and enhance power grids
+								for dynamic energy distribution.
 							</p>
 							<ul className="space-y-3 text-gray-300">
 								<li className="flex items-start">
@@ -192,7 +205,8 @@ export default function Home() {
 										•
 									</span>
 									<span>
-										Analysis of the temperature and population density features
+										Analysis of the temperature and
+										population density features
 									</span>
 								</li>
 								<li className="flex items-start">
@@ -229,7 +243,10 @@ export default function Home() {
 					</h2>
 					<div className="h-1 w-20 bg-orange-500 mx-auto mb-12"></div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center mx-auto" style={{maxWidth: '700px'}}>
+					<div
+						className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center mx-auto"
+						style={{ maxWidth: "700px" }}
+					>
 						<div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-orange-500/30">
 							<div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-4">
 								<Sun className="h-8 w-8 text-orange-500" />
@@ -416,15 +433,21 @@ export default function Home() {
 					<div className="flex flex-col md:flex-row gap-12 items-center mb-16">
 						<div className="md:w-1/2">
 							<p className="text-xl text-gray-300 mb-6">
-								EnergetiQ – Qطاقة is powered by a diverse group of students
-								and enthusiasts in quantum computing, artificial intelligence,
-								and renewable energy, united by a shared passion for clean-energy
-								 innovation. Though we’re still learning the ropes, our team brings
-								  together hands-on experience from university projects in material science, 
-								  machine learning, and solar technology exploration across different regions. 
-								  As hackathon participants, we’re drawing on this collective curiosity to prototype
-								   solutions that advance the UN Sustainable Development Goals. Above all, we’re 
-								   committed to making renewable power more accessible and affordable—one creative idea at a time.
+								EnergetiQ – Qطاقة is powered by a diverse group
+								of students and enthusiasts in quantum
+								computing, artificial intelligence, and
+								renewable energy, united by a shared passion for
+								clean-energy innovation. Though we’re still
+								learning the ropes, our team brings together
+								hands-on experience from university projects in
+								material science, machine learning, and solar
+								technology exploration across different regions.
+								As hackathon participants, we’re drawing on this
+								collective curiosity to prototype solutions that
+								advance the UN Sustainable Development Goals.
+								Above all, we’re committed to making renewable
+								power more accessible and affordable—one
+								creative idea at a time.
 							</p>
 						</div>
 
@@ -466,9 +489,23 @@ export default function Home() {
 						<div className="mb-6 md:mb-0">
 							<div className="flex items-center">
 								<Sun className="h-8 w-8 text-orange-500 mr-3" />
-								<h3 className="text-2xl font-bold">
-									EnergetiQ - Qطاقة
-								</h3>
+								<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+									<Image
+										src="/logos/english_white_logo.png"
+										alt="Logo"
+										fill
+										className="object-contain p-2"
+									/>
+								</div>
+								<span className="text-orange-500 mx-1">-</span>
+								<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+									<Image
+										src="/logos/arabic_white_logo.png"
+										alt="Logo"
+										fill
+										className="object-contain p-2"
+									/>
+								</div>
 							</div>
 							<p className="text-gray-400 mt-2">
 								AI-Powered Quantum Solar Revolution

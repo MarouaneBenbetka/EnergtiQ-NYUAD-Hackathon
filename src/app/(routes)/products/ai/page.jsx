@@ -94,10 +94,10 @@ export default function AIPage() {
 										className="mb-2"
 									/>
 									<div className="flex justify-between text-sm text-gray-400">
-										<span>5</span>
 										<span>10</span>
 										<span>15</span>
 										<span>20</span>
+										<span>25</span>
 									</div>
 								</div>
 							</div>
