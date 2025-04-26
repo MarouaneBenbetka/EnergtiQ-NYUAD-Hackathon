@@ -71,10 +71,10 @@ export default function AIPage() {
 								>
 									<TabsList className="grid grid-cols-2 w-full">
 										<TabsTrigger value="city1">
-											City One
+											Abudhabi
 										</TabsTrigger>
 										<TabsTrigger value="city2">
-											City Two
+											Dubai
 										</TabsTrigger>
 									</TabsList>
 								</Tabs>
@@ -107,7 +107,7 @@ export default function AIPage() {
 						{/* Map Display */}
 						<div className="bg-gray-900 rounded-lg overflow-hidden border border-gray-700 h-[500px] w-full">
 							<iframe
-								src={mapUrl}
+								src={"/maps/abu_dhabi_10.html"}
 								className="w-full h-full"
 								title={`Energy distribution map for ${city} with cluster size ${clusterSize}`}
 							/>
