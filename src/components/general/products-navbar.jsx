@@ -12,6 +12,7 @@ import {
 	X,
 	ExternalLink,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function ProductsNavbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -48,23 +49,26 @@ export default function ProductsNavbar() {
 			<div className="container mx-auto px-4">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
-					<Link
-						href="/products/dashboard"
-						className="flex items-center"
-					>
-						<div className="relative w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center mr-3">
-							<Sun className="h-6 w-6 text-orange-500 absolute" />
+					<div className="flex items-center text-white text-2xl font-bold">
+						<Sun className="h-8 w-8 text-orange-500 mr-3" />
+						<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+							<Image
+								src="/logos/energeticQ.png"
+								alt="Logo"
+								fill
+								className="object-contain p-2"
+							/>
 						</div>
-						<div className="flex flex-col">
-							<span className="text-xl font-bold text-white">
-								EnergetiQ Products
-							</span>
-							<span className="text-xs text-gray-400">
-								Quantum & AI Solutions
-							</span>
+						<span className="text-orange-500 mx-1">-</span>
+						<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+							<Image
+								src="/logos/taqaQ.png"
+								alt="Logo"
+								fill
+								className="object-contain p-2"
+							/>
 						</div>
-					</Link>
-
+					</div>
 					{/* Desktop Navigation */}
 					<nav className="hidden md:flex items-center space-x-1">
 						<Link
@@ -114,7 +118,6 @@ export default function ProductsNavbar() {
 							href="/"
 							className="hidden md:flex items-center text-gray-300 hover:text-white mr-4"
 						>
-							<span>Back to Main Site</span>
 							<ExternalLink className="ml-1 h-4 w-4" />
 						</Link>
 

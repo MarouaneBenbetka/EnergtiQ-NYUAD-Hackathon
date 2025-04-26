@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Sun, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -36,15 +37,26 @@ export default function Navbar() {
 			}`}
 		>
 			<div className="container mx-auto px-4 flex items-center justify-between">
-				<Link
-					href="/dashboard"
-					className="flex items-center text-white text-2xl font-bold"
-				>
+				<div className="flex items-center text-white text-2xl font-bold">
 					<Sun className="h-8 w-8 text-orange-500 mr-3" />
-					<span>EnergetiQ</span>
+					<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+						<Image
+							src="/logos/energeticQ.png"
+							alt="Logo"
+							fill
+							className="object-contain p-2"
+						/>
+					</div>
 					<span className="text-orange-500 mx-1">-</span>
-					<span>Qطاقة</span>
-				</Link>
+					<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+						<Image
+							src="/logos/taqaQ.png"
+							alt="Logo"
+							fill
+							className="object-contain p-2"
+						/>
+					</div>
+				</div>
 
 				{/* Desktop Navigation */}
 				<nav className="hidden md:flex items-center space-x-8">
