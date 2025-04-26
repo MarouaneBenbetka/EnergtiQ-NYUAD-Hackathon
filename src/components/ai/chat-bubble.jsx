@@ -15,7 +15,7 @@ export default function ChatBubble() {
 	const [messages, setMessages] = useState([
 		{
 			id: 1,
-			text: "👋 Hi there! How can I help you with your travel plans today?",
+			text: "👋 Hi there! Ask me anything about the project?",
 			isUser: false,
 			timestamp: new Date(),
 		},
@@ -88,7 +88,17 @@ export default function ChatBubble() {
 	const fetchGeminiResponse = async (userInput) => {
 		try {
 			const model = genAI.getGenerativeModel({model: 'gemini-1.5-flash'});
-			const result = await model.generateContent(userInput);
+			const systemPrompt = `You are an AI assistant for EnergetiQ - Qطاقة, an AI-Powered Quantum Solar Revolution project. Your role is to provide information and answer questions about:
+			- The project's mission to improve solar energy efficiency using Quantum Computing and AI
+			- Technical aspects including Quantum Computing for battery materials and AI/ML for panel optimization
+			- Alignment with SDGs (7, 9, 11, 13)
+			- Impact on scalability, sustainability, and innovation
+			- Target audience and key differentiators
+			
+			Please only respond to questions relevant to these topics. If asked about unrelated topics, politely redirect the conversation back to EnergetiQ's mission and capabilities.
+			
+			User question: ${userInput}`;
+			const result = await model.generateContent(systemPrompt);
 			const response = await result.response;
 			return response.text();
 		} catch (error) {
