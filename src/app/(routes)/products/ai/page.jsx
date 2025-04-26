@@ -87,8 +87,8 @@ export default function AIPage() {
 								<div className="px-2">
 									<Slider
 										defaultValue={[10]}
-										min={5}
-										max={20}
+										min={10}
+										max={25}
 										step={5}
 										onValueChange={handleSliderChange}
 										className="mb-2"

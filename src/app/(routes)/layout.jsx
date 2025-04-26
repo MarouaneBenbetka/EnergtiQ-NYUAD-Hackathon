@@ -2,11 +2,11 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
-import ChatBubble from "@/components/ai/chat-bubble";
 
 export const metadata = {
-	title: "TRVL - Adventure Awaits",
-	description: "Discover amazing travel destinations around the world",
+	title: "EnergitiQ - AI-Powered Quantum Solar Revolution",
+	description:
+		"Discover the future of energy with our innovative quantum technology solutions.",
 };
 
 export default function RootLayout({ children }) {

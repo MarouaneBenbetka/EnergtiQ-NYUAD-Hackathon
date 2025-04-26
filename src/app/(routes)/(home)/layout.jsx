@@ -4,11 +4,6 @@ import ChatBubble from "@/components/ai/chat-bubble";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-	title: "TRVL - Adventure Awaits",
-	description: "Discover amazing travel destinations around the world",
-};
-
 export default function RootLayout({ children }) {
 	return (
 		<>

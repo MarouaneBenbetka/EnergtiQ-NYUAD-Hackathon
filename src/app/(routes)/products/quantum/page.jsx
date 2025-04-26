@@ -81,7 +81,7 @@ export default function QuantumPage() {
 			description: "Thermal energy storage characteristics",
 		},
 		{
-			id: "ionization-energy",
+			id: "Ionization-energy",
 			title: "Ionization Energy",
 			description: "Energy required to remove an electron",
 		},
