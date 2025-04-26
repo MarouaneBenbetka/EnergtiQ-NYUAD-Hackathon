@@ -61,9 +61,9 @@ export default function ChatBubble() {
 		setIsLoading(true);
 
 		try {
-			console.log('[Gemini] Sending user input:', inputValue);
+			console.log("[Gemini] Sending user input:", inputValue);
 			const botResponse = await fetchGeminiResponse(inputValue);
-			console.log('[Gemini] Received response:', botResponse);
+			console.log("[Gemini] Received response:", botResponse);
 			const botMessage = {
 				id: messages.length + 2,
 				text: botResponse,
@@ -72,7 +72,7 @@ export default function ChatBubble() {
 			};
 			setMessages((prev) => [...prev, botMessage]);
 		} catch (err) {
-			console.error('[Gemini] Error:', err);
+			console.error("[Gemini] Error:", err);
 			const botMessage = {
 				id: messages.length + 2,
 				text: "Sorry, I couldn't get a response from the AI. Please try again later.",
@@ -87,7 +87,9 @@ export default function ChatBubble() {
 
 	const fetchGeminiResponse = async (userInput) => {
 		try {
-			const model = genAI.getGenerativeModel({model: 'gemini-1.5-flash'});
+			const model = genAI.getGenerativeModel({
+				model: "gemini-1.5-flash",
+			});
 			const systemPrompt = `You are an AI assistant for EnergetiQ - Qطاقة, an AI-Powered Quantum Solar Revolution project. Your role is to provide information and answer questions about:
 			- The project's mission to improve solar energy efficiency using Quantum Computing and AI
 			- Technical aspects including Quantum Computing for battery materials and AI/ML for panel optimization
@@ -102,7 +104,7 @@ export default function ChatBubble() {
 			const response = await result.response;
 			return response.text();
 		} catch (error) {
-			console.error('[Gemini] Error generating text:', error);
+			console.error("[Gemini] Error generating text:", error);
 			throw error;
 		}
 	};
@@ -137,10 +139,9 @@ export default function ChatBubble() {
 			>
 				{/* Chat header */}
 				<div className="bg-gradient-to-r from-blue-500 to-blue-300 p-4">
-					<h3 className="text-white font-bold">TRVL Assistant</h3>
-					<p className="text-white text-sm opacity-80">
-						We typically reply within minutes
-					</p>
+					<h3 className="text-white font-bold">
+						EnergetiQ Assistant
+					</h3>
 				</div>
 
 				{/* Chat messages */}
