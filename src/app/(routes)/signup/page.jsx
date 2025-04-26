@@ -56,7 +56,7 @@ export default function SignUp() {
 
 						<p className="text-sm text-center text-gray-300">
 							Already have an account?{" "}
-							<a href="#" className="text-white underline">
+							<a href="" className="text-white underline">
 								Log in
 							</a>
 						</p>
