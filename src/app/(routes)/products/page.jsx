@@ -43,24 +43,12 @@ export default function ProductsPage() {
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 						<Link
 							className="bg-gray-800/50 p-6 rounded-lg cursor-pointer hover:bg-gray-800 transition-colors"
-							href="/products/dashboard"
-						>
-							<LayoutDashboard className="h-10 w-10 text-orange-500 mx-auto mb-4" />
-							<h3 className="text-xl font-bold mb-2">
-								Dashboard
-							</h3>
-							<p className="text-gray-400">
-								Real-time monitoring and analytics for your
-								solar energy system
-							</p>
-						</Link>
-
-						<Link
-							className="bg-gray-800/50 p-6 rounded-lg cursor-pointer hover:bg-gray-800 transition-colors"
 							href="/products/quantum"
 						>
 							<Cpu className="h-10 w-10 text-orange-500 mx-auto mb-4" />
-							<h3 className="text-xl font-bold mb-2">Quantum</h3>
+							<h3 className="text-xl font-bold mb-2">
+								Battery Design
+							</h3>
 							<p className="text-gray-400">
 								Quantum computing technology for advanced
 								material simulation
@@ -72,10 +60,26 @@ export default function ProductsPage() {
 							href="/products/ai"
 						>
 							<BrainCircuit className="h-10 w-10 text-orange-500 mx-auto mb-4" />
-							<h3 className="text-xl font-bold mb-2">AI</h3>
+							<h3 className="text-xl font-bold mb-2">
+								Battery Placement
+							</h3>
 							<p className="text-gray-400">
 								Artificial intelligence for optimization and
 								predictive analytics
+							</p>
+						</Link>
+
+						<Link
+							className="bg-gray-800/50 p-6 rounded-lg cursor-pointer hover:bg-gray-800 transition-colors"
+							href="/products/dashboard"
+						>
+							<LayoutDashboard className="h-10 w-10 text-orange-500 mx-auto mb-4" />
+							<h3 className="text-xl font-bold mb-2">
+								Dashboard
+							</h3>
+							<p className="text-gray-400">
+								Real-time monitoring and analytics for your
+								solar energy system
 							</p>
 						</Link>
 					</div>

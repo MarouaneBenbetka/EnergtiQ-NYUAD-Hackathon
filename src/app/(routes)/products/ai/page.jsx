@@ -70,7 +70,7 @@ export default function AIPage() {
 								>
 									<TabsList className="grid grid-cols-2 w-full">
 										<TabsTrigger value="city1">
-											Abudhabi
+											Abu dhabi
 										</TabsTrigger>
 										<TabsTrigger value="city2">
 											Dubai
@@ -109,7 +109,7 @@ export default function AIPage() {
 								src={mapUrl}
 								className="w-full h-full"
 								title={`Energy distribution map for ${
-									city === "city1" ? "Abudhabi" : "Dubai"
+									city === "city1" ? "Abu dhabi" : "Dubai"
 								} with cluster size ${clusterSize}`}
 							/>
 						</div>

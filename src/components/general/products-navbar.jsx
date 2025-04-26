@@ -81,7 +81,7 @@ export default function ProductsNavbar() {
 						>
 							<div className="flex items-center">
 								<Cpu className="h-4 w-4 mr-2" />
-								Quantum
+								Battery Design
 							</div>
 						</Link>
 						<Link
@@ -94,7 +94,7 @@ export default function ProductsNavbar() {
 						>
 							<div className="flex items-center">
 								<BrainCircuit className="h-4 w-4 mr-2" />
-								AI
+								Battery Placement
 							</div>
 						</Link>
 						<Link
@@ -157,7 +157,7 @@ export default function ProductsNavbar() {
 						onClick={() => setIsMobileMenuOpen(false)}
 					>
 						<Cpu className="h-5 w-5 mr-3" />
-						Quantum
+						Battery Design
 					</Link>
 					<Link
 						href="/products/ai"
@@ -169,7 +169,7 @@ export default function ProductsNavbar() {
 						onClick={() => setIsMobileMenuOpen(false)}
 					>
 						<BrainCircuit className="h-5 w-5 mr-3" />
-						AI
+						Battery Placememnt
 					</Link>
 
 					<Link

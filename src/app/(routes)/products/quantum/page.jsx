@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, AtomIcon } from "lucide-react";
+import { ArrowLeft, AtomIcon, Heater } from "lucide-react";
 import {
 	Select,
 	SelectContent,
@@ -160,7 +160,7 @@ export default function QuantumPage() {
 								</TabsTrigger>
 							</TabsList>
 
-							<TabsContent value="grid">
+							<TabsContent value="full">
 								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 									{diagrams.map((diagram) => (
 										<DiagramCard
