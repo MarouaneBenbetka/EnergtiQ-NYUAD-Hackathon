@@ -5,6 +5,10 @@ import { MessageSquare, X, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+// initialize the GenAI client
+const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
 
 export default function ChatBubble() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +21,7 @@ export default function ChatBubble() {
 		},
 	]);
 	const [inputValue, setInputValue] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 	const messagesEndRef = useRef();
 	const inputRef = useRef();
 
@@ -39,12 +44,11 @@ export default function ChatBubble() {
 		}
 	}, [isOpen, messages]);
 
-	const sendMessage = (e) => {
+	const sendMessage = async (e) => {
 		e?.preventDefault();
 
 		if (!inputValue.trim()) return;
 
-		// Add user message
 		const userMessage = {
 			id: messages.length + 1,
 			text: inputValue,
@@ -54,49 +58,42 @@ export default function ChatBubble() {
 
 		setMessages((prev) => [...prev, userMessage]);
 		setInputValue("");
+		setIsLoading(true);
 
-		// Simulate typing indicator
-		setTimeout(() => {
-			// Generate dummy response based on user input
-			const botResponse = generateDummyResponse(inputValue);
-
+		try {
+			console.log('[Gemini] Sending user input:', inputValue);
+			const botResponse = await fetchGeminiResponse(inputValue);
+			console.log('[Gemini] Received response:', botResponse);
 			const botMessage = {
 				id: messages.length + 2,
 				text: botResponse,
 				isUser: false,
 				timestamp: new Date(),
 			};
-
 			setMessages((prev) => [...prev, botMessage]);
-		}, 1000);
+		} catch (err) {
+			console.error('[Gemini] Error:', err);
+			const botMessage = {
+				id: messages.length + 2,
+				text: "Sorry, I couldn't get a response from the AI. Please try again later.",
+				isUser: false,
+				timestamp: new Date(),
+			};
+			setMessages((prev) => [...prev, botMessage]);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
-	const generateDummyResponse = (userInput) => {
-		const userText = userInput.toLowerCase();
-
-		if (
-			userText.includes("hello") ||
-			userText.includes("hi") ||
-			userText.includes("hey")
-		) {
-			return "Hello there! How can I assist with your travel plans today?";
-		} else if (
-			userText.includes("book") ||
-			userText.includes("reservation")
-		) {
-			return "I'd be happy to help you book a trip! Our team can be reached at bookings@trvl.com or you can use our online booking system.";
-		} else if (
-			userText.includes("price") ||
-			userText.includes("cost") ||
-			userText.includes("how much")
-		) {
-			return "Our prices vary depending on the destination and package. Could you tell me which destination you're interested in?";
-		} else if (userText.includes("desert") || userText.includes("safari")) {
-			return "Our desert safari packages start at $499 for a 3-day adventure. Would you like more information about this?";
-		} else if (userText.includes("cancel") || userText.includes("refund")) {
-			return "For cancellations and refunds, please contact our customer service team at support@trvl.com with your booking reference.";
-		} else {
-			return "Thanks for your message! Our team will get back to you soon. Is there anything else I can help with?";
+	const fetchGeminiResponse = async (userInput) => {
+		try {
+			const model = genAI.getGenerativeModel({model: 'gemini-1.5-flash'});
+			const result = await model.generateContent(userInput);
+			const response = await result.response;
+			return response.text();
+		} catch (error) {
+			console.error('[Gemini] Error generating text:', error);
+			throw error;
 		}
 	};
 
@@ -108,8 +105,8 @@ export default function ChatBubble() {
 				className={cn(
 					"flex items-center justify-center w-16 h-16 rounded-full shadow-lg transition-all duration-300 transform",
 					isOpen
-						? "bg-red-500 rotate-90"
-						: "bg-orange-500 hover:bg-orange-600 animate-bounce"
+						? "bg-blue-500 rotate-90"
+						: "bg-gradient-to-r from-blue-500 to-blue-300 hover:from-blue-600 hover:to-blue-400 animate-bounce"
 				)}
 			>
 				{isOpen ? (
@@ -129,7 +126,7 @@ export default function ChatBubble() {
 				)}
 			>
 				{/* Chat header */}
-				<div className="bg-orange-500 p-4">
+				<div className="bg-gradient-to-r from-blue-500 to-blue-300 p-4">
 					<h3 className="text-white font-bold">TRVL Assistant</h3>
 					<p className="text-white text-sm opacity-80">
 						We typically reply within minutes
@@ -137,15 +134,15 @@ export default function ChatBubble() {
 				</div>
 
 				{/* Chat messages */}
-				<div className="h-80 overflow-y-auto p-4 bg-gray-50">
+				<div className="h-80 overflow-y-auto p-4 bg-blue-50">
 					{messages.map((message) => (
 						<div
 							key={message.id}
 							className={cn(
 								"mb-4 max-w-[80%] p-3 rounded-lg",
 								message.isUser
-									? "bg-orange-500 text-white ml-auto rounded-br-none"
-									: "bg-gray-200 text-gray-800 rounded-bl-none"
+									? "bg-gradient-to-r from-blue-500 to-blue-300 text-white ml-auto rounded-br-none"
+									: "bg-blue-100 text-blue-900 rounded-bl-none"
 							)}
 						>
 							<p>{message.text}</p>
@@ -157,13 +154,18 @@ export default function ChatBubble() {
 							</span>
 						</div>
 					))}
+					{isLoading && (
+						<div className="mb-4 max-w-[80%] p-3 rounded-lg bg-blue-100 text-blue-900 rounded-bl-none animate-pulse">
+							<p>Typing...</p>
+						</div>
+					)}
 					<div ref={messagesEndRef} />
 				</div>
 
 				{/* Chat input */}
 				<form
 					onSubmit={sendMessage}
-					className="border-t border-gray-200 p-4 flex"
+					className="border-t border-blue-200 p-4 flex"
 				>
 					<Input
 						ref={inputRef}
@@ -171,13 +173,13 @@ export default function ChatBubble() {
 						placeholder="Type your message..."
 						value={inputValue}
 						onChange={handleInputChange}
-						className="flex-1 focus-visible:ring-orange-500"
+						className="flex-1 focus-visible:ring-blue-500"
 					/>
 					<Button
 						type="submit"
 						size="icon"
-						className="ml-2 bg-orange-500 hover:bg-orange-600"
-						disabled={!inputValue.trim()}
+						className="ml-2 bg-gradient-to-r from-blue-500 to-blue-300 hover:from-blue-600 hover:to-blue-400"
+						disabled={!inputValue.trim() || isLoading}
 					>
 						<Send className="h-4 w-4" />
 					</Button>
