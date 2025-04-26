@@ -41,7 +41,7 @@ export default function Navbar() {
 					<Sun className="h-8 w-8 text-orange-500 mr-3" />
 					<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 						<Image
-							src="/logos/energeticQ.png"
+							src="/logos/english_white_logo.png"
 							alt="Logo"
 							fill
 							className="object-contain p-2"
@@ -50,7 +50,7 @@ export default function Navbar() {
 					<span className="text-orange-500 mx-1">-</span>
 					<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 						<Image
-							src="/logos/taqaQ.png"
+							src="/logos/arabic_white_logo.png"
 							alt="Logo"
 							fill
 							className="object-contain p-2"

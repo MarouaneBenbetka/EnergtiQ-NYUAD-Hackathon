@@ -31,9 +31,24 @@ export default function Home() {
 					<div className="container mx-auto px-4 py-20 flex flex-col items-center text-center mt-50">
 						<div className="mb-6 flex items-center">
 							<Sun className="h-16 w-16 text-orange-500 mr-4" />
-							<h1 className="text-5xl md:text-7xl font-bold">
-								EnergetiQ{" "}
-								<span className="text-orange-500">-</span> Qطاقة
+							<h1 className="text-5xl md:text-7xl font-bold flex items-center">
+								<div className="w-56 h-20 relative  rounded-lg overflow-hidden flex items-center justify-center">
+									<Image
+										src="/logos/english_white_logo.png"
+										alt="Logo"
+										fill
+										className="object-contain p-2"
+									/>
+								</div>
+								<span className="text-orange-500 mx-1">-</span>
+								<div className="w-32 h-24 relative  rounded-lg overflow-hidden flex items-center justify-center">
+									<Image
+										src="/logos/arabic_white_logo.png"
+										alt="Logo"
+										fill
+										className="object-contain p-2"
+									/>
+								</div>
 							</h1>
 						</div>
 						<h2 className="text-2xl md:text-4xl font-semibold mb-8 text-orange-400">

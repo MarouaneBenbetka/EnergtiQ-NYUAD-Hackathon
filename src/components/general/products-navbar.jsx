@@ -53,7 +53,7 @@ export default function ProductsNavbar() {
 						<Sun className="h-8 w-8 text-orange-500 mr-3" />
 						<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 							<Image
-								src="/logos/energeticQ.png"
+								src="/logos/english_white_logo.png"
 								alt="Logo"
 								fill
 								className="object-contain p-2"
@@ -62,7 +62,7 @@ export default function ProductsNavbar() {
 						<span className="text-orange-500 mx-1">-</span>
 						<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 							<Image
-								src="/logos/taqaQ.png"
+								src="/logos/arabic_white_logo.png"
 								alt="Logo"
 								fill
 								className="object-contain p-2"
@@ -70,20 +70,7 @@ export default function ProductsNavbar() {
 						</div>
 					</div>
 					{/* Desktop Navigation */}
-					<nav className="hidden md:flex items-center space-x-1">
-						<Link
-							href="/products/dashboard"
-							className={`px-4 py-2 rounded-md transition-colors ${
-								isActive("/products/dashboard")
-									? "bg-orange-500 text-white"
-									: "text-gray-300 hover:text-white hover:bg-gray-800"
-							}`}
-						>
-							<div className="flex items-center">
-								<LayoutDashboard className="h-4 w-4 mr-2" />
-								Dashboard
-							</div>
-						</Link>
+					<nav className="hidden md:flex items-center space-x-1 pr-30">
 						<Link
 							href="/products/quantum"
 							className={`px-4 py-2 rounded-md transition-colors ${
@@ -108,6 +95,19 @@ export default function ProductsNavbar() {
 							<div className="flex items-center">
 								<BrainCircuit className="h-4 w-4 mr-2" />
 								AI
+							</div>
+						</Link>
+						<Link
+							href="/products/dashboard"
+							className={`px-4 py-2 rounded-md transition-colors ${
+								isActive("/products/dashboard")
+									? "bg-orange-500 text-white"
+									: "text-gray-300 hover:text-white hover:bg-gray-800"
+							}`}
+						>
+							<div className="flex items-center">
+								<LayoutDashboard className="h-4 w-4 mr-2" />
+								Dashboard
 							</div>
 						</Link>
 					</nav>
@@ -148,18 +148,6 @@ export default function ProductsNavbar() {
 			>
 				<nav className="container mx-auto px-4 py-4 flex flex-col space-y-3">
 					<Link
-						href="/products/dashboard"
-						className={`px-4 py-3 rounded-md flex items-center transition-colors ${
-							isActive("/products/dashboard")
-								? "bg-orange-500 text-white"
-								: "text-gray-300 hover:text-white hover:bg-gray-800"
-						}`}
-						onClick={() => setIsMobileMenuOpen(false)}
-					>
-						<LayoutDashboard className="h-5 w-5 mr-3" />
-						Dashboard
-					</Link>
-					<Link
 						href="/products/quantum"
 						className={`px-4 py-3 rounded-md flex items-center transition-colors ${
 							isActive("/products/quantum")
@@ -182,6 +170,19 @@ export default function ProductsNavbar() {
 					>
 						<BrainCircuit className="h-5 w-5 mr-3" />
 						AI
+					</Link>
+
+					<Link
+						href="/products/dashboard"
+						className={`px-4 py-3 rounded-md flex items-center transition-colors ${
+							isActive("/products/dashboard")
+								? "bg-orange-500 text-white"
+								: "text-gray-300 hover:text-white hover:bg-gray-800"
+						}`}
+						onClick={() => setIsMobileMenuOpen(false)}
+					>
+						<LayoutDashboard className="h-5 w-5 mr-3" />
+						Dashboard
 					</Link>
 
 					<div className="border-t border-gray-800 my-2 pt-2">

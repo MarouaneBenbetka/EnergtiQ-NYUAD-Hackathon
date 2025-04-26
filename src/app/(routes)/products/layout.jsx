@@ -2,8 +2,9 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import { Sun } from "lucide-react";
 import ProductsNavbar from "@/components/general/products-navbar";
-
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
+import ChatBubble from "@/components/ai/chat-bubble";
 
 export default function ProductsLayout({ children }) {
 	return (
@@ -104,6 +105,7 @@ export default function ProductsLayout({ children }) {
 					</div>
 				</div>
 			</footer>
+			<ChatBubble />
 		</div>
 	);
 }
