@@ -64,10 +64,7 @@ export default function Home() {
 							</h2>
 							<div className="h-1 w-20 bg-orange-500 mb-8"></div>
 							<p className="text-lg text-gray-300 mb-6">
-								Current solar energy systems face inefficiencies
-								due to suboptimal battery materials, improper
-								panel placement, and inadequate maintenance
-								schedules.
+							Using solar energy is an excellent way to harness clean, renewable power—but it comes with a catch: when battery packs overheat during charge–discharge cycles, they suffer accelerated capacity loss, safety risks like thermal runaway, and higher cooling and maintenance costs.
 							</p>
 							<ul className="space-y-4">
 								<li className="flex items-start">
@@ -75,8 +72,7 @@ export default function Home() {
 										<Battery className="h-5 w-5 text-orange-500" />
 									</div>
 									<p className="text-gray-300">
-										Limited energy storage capacity with
-										current battery technologies
+									Accelerated capacity fade, reducing the amount of energy the system can store and deliver over its lifetime.
 									</p>
 								</li>
 								<li className="flex items-start">
@@ -84,8 +80,7 @@ export default function Home() {
 										<Sun className="h-5 w-5 text-orange-500" />
 									</div>
 									<p className="text-gray-300">
-										Inefficient solar panel placement
-										reducing energy capture
+									Elevated safety risks, including thermal runaway, venting, or even fires if temperatures aren't carefully managed.
 									</p>
 								</li>
 								<li className="flex items-start">
@@ -93,17 +88,7 @@ export default function Home() {
 										<BarChart3 className="h-5 w-5 text-orange-500" />
 									</div>
 									<p className="text-gray-300">
-										High costs limiting global adoption of
-										clean energy
-									</p>
-								</li>
-								<li className="flex items-start">
-									<div className="mt-1 mr-4 p-1 bg-orange-500/20 rounded-full">
-										<Globe className="h-5 w-5 text-orange-500" />
-									</div>
-									<p className="text-gray-300">
-										Limited infrastructure in regions that
-										need clean energy most
+									Increased operational costs and downtime, as active cooling systems and safety interlocks add expense and can interrupt energy availability.
 									</p>
 								</li>
 							</ul>
@@ -181,9 +166,9 @@ export default function Home() {
 								</h3>
 							</div>
 							<p className="text-gray-300 mb-6">
-								We integrate AI/ML to optimize solar panel and
-								battery placement, predict maintenance needs,
-								and enhance grid integration for dynamic energy
+								We integrate AI/ML to optimize solar panel and battery placement 
+								through analysing temperature and population density,
+								and enhance power grids for dynamic energy
 								distribution.
 							</p>
 							<ul className="space-y-3 text-gray-300">
@@ -192,7 +177,7 @@ export default function Home() {
 										•
 									</span>
 									<span>
-										Predictive maintenance scheduling
+										Analysis of the temperature and population density features
 									</span>
 								</li>
 								<li className="flex items-start">
@@ -208,7 +193,7 @@ export default function Home() {
 										•
 									</span>
 									<span>
-										Smart grid integration and load
+										Power grid enhancement and load
 										balancing
 									</span>
 								</li>
@@ -229,7 +214,7 @@ export default function Home() {
 					</h2>
 					<div className="h-1 w-20 bg-orange-500 mx-auto mb-12"></div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center mx-auto" style={{maxWidth: '700px'}}>
 						<div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-orange-500/30">
 							<div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-4">
 								<Sun className="h-8 w-8 text-orange-500" />
@@ -246,20 +231,6 @@ export default function Home() {
 
 						<div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-orange-500/30">
 							<div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-4">
-								<Factory className="h-8 w-8 text-orange-500" />
-							</div>
-							<h3 className="text-xl font-bold mb-2">SDG 9</h3>
-							<h4 className="text-orange-400 mb-4">
-								Industry, Innovation & Infrastructure
-							</h4>
-							<p className="text-gray-300">
-								Pioneer QC-driven material innovation and
-								AI-enabled smart energy systems.
-							</p>
-						</div>
-
-						<div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-orange-500/30">
-							<div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-4">
 								<Building2 className="h-8 w-8 text-orange-500" />
 							</div>
 							<h3 className="text-xl font-bold mb-2">SDG 11</h3>
@@ -270,20 +241,6 @@ export default function Home() {
 								Enable smart urban planning with optimized
 								renewable energy integration for more
 								sustainable, resilient cities.
-							</p>
-						</div>
-
-						<div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-orange-500/30">
-							<div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-4">
-								<CloudSun className="h-8 w-8 text-orange-500" />
-							</div>
-							<h3 className="text-xl font-bold mb-2">SDG 13</h3>
-							<h4 className="text-orange-400 mb-4">
-								Climate Action
-							</h4>
-							<p className="text-gray-300">
-								Reduce carbon footprints by maximizing solar
-								energy utilization and efficiency.
 							</p>
 						</div>
 					</div>
@@ -444,23 +401,15 @@ export default function Home() {
 					<div className="flex flex-col md:flex-row gap-12 items-center mb-16">
 						<div className="md:w-1/2">
 							<p className="text-xl text-gray-300 mb-6">
-								EnergetiQ - Qطاقة was founded by a diverse team
-								of experts in quantum computing, artificial
-								intelligence, and renewable energy with a shared
-								vision of accelerating the global transition to
-								clean energy.
-							</p>
-							<p className="text-xl text-gray-300 mb-6">
-								Our team combines decades of experience in
-								material science, machine learning, and solar
-								technology deployment across multiple
-								continents.
-							</p>
-							<p className="text-xl text-gray-300">
-								We are committed to creating innovative
-								solutions that address the UN Sustainable
-								Development Goals while making clean energy more
-								accessible and affordable for all.
+								EnergetiQ – Qطاقة is powered by a diverse group of students
+								and enthusiasts in quantum computing, artificial intelligence,
+								and renewable energy, united by a shared passion for clean-energy
+								 innovation. Though we’re still learning the ropes, our team brings
+								  together hands-on experience from university projects in material science, 
+								  machine learning, and solar technology exploration across different regions. 
+								  As hackathon participants, we’re drawing on this collective curiosity to prototype
+								   solutions that advance the UN Sustainable Development Goals. Above all, we’re 
+								   committed to making renewable power more accessible and affordable—one creative idea at a time.
 							</p>
 						</div>
 
@@ -549,17 +498,6 @@ export default function Home() {
 											About Us
 										</a>
 									</li>
-								</ul>
-							</div>
-
-							<div>
-								<h4 className="font-bold mb-3 text-orange-400">
-									Contact
-								</h4>
-								<ul className="space-y-2 text-gray-400">
-									<li>info@energetiq.com</li>
-									<li>+1 (555) 123-4567</li>
-									<li>San Francisco, CA</li>
 								</ul>
 							</div>
 						</div>
