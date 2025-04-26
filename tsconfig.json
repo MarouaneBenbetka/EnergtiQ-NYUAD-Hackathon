@@ -23,6 +23,13 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+	"include": [
+		"next-env.d.ts",
+		".next/types/**/*.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/app/(routes)/products/dashboard/layout.tsx",
+		"src/app/(routes)/products/dashboard/layout.jsx"
+	],
 	"exclude": ["node_modules"]
 }
