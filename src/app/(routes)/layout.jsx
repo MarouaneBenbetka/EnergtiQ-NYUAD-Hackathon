@@ -1,7 +1,5 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/general/navbar";
-import ChatBubble from "@/components/ai/chat-bubble";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
-				<Navbar />
-				<main className="relative min-h-screen scroll-smooth">
-					{children}
-				</main>
-				<ChatBubble />
-			</body>
+			<body className={inter.className}>{children}</body>
 		</html>
 	);
 }

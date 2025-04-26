@@ -78,12 +78,12 @@ export default function Navbar() {
 					>
 						About Us
 					</a>
-					<a
-						href="#contact"
+					<Link
+						href="/products"
 						className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
 					>
-						Contact
-					</a>
+						Explore
+					</Link>
 				</nav>
 
 				{/* Mobile Menu Button */}
@@ -143,13 +143,12 @@ export default function Navbar() {
 					>
 						About Us
 					</a>
-					<a
-						href="#contact"
-						className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors inline-block"
-						onClick={toggleMobileMenu}
+					<Link
+						href="/products"
+						className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
 					>
-						Contact
-					</a>
+						Explore
+					</Link>
 				</nav>
 			</div>
 		</header>
