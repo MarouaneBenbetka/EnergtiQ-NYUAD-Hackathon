@@ -37,7 +37,7 @@ export default function Navbar() {
 		>
 			<div className="container mx-auto px-4 flex items-center justify-between">
 				<Link
-					href="/"
+					href="/dashboard"
 					className="flex items-center text-white text-2xl font-bold"
 				>
 					<Sun className="h-8 w-8 text-orange-500 mr-3" />
