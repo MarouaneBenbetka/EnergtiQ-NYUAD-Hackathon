@@ -1,4 +1,4 @@
-> 🥈 **Second Place Winner — Hackathon (out of 17 teams)!**
+> 🥈 **Second Place Winner — NYUAD Hackathon (out of 17 teams)!**
 
 # EnergetiQ
 
