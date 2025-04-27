@@ -37,9 +37,12 @@ export default function Navbar() {
 			}`}
 		>
 			<div className="container mx-auto px-4 flex items-center justify-between">
-				<div className="flex items-center text-white text-2xl font-bold">
+				<Link
+					className="flex items-center text-white text-2xl font-bold"
+					href={"/"}
+				>
 					<Sun className="h-8 w-8 text-orange-500 mr-3" />
-					<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+					<div className="w-20 h-10 md:w-36 md:h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 						<Image
 							src="/logos/english_white_logo.png"
 							alt="Logo"
@@ -48,7 +51,7 @@ export default function Navbar() {
 						/>
 					</div>
 					<span className="text-orange-500 mx-1">-</span>
-					<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+					<div className="w-18 h-12 md:w-24 md:h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 						<Image
 							src="/logos/arabic_white_logo.png"
 							alt="Logo"
@@ -56,7 +59,7 @@ export default function Navbar() {
 							className="object-contain p-2"
 						/>
 					</div>
-				</div>
+				</Link>
 
 				{/* Desktop Navigation */}
 				<nav className="hidden md:flex items-center space-x-8">

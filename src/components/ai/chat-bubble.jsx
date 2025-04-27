@@ -184,7 +184,7 @@ export default function ChatBubble() {
 						placeholder="Type your message..."
 						value={inputValue}
 						onChange={handleInputChange}
-						className="flex-1 focus-visible:ring-blue-500"
+						className="flex-1 focus-visible:ring-blue-500 text-black"
 					/>
 					<Button
 						type="submit"

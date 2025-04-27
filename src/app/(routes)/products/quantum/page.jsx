@@ -111,7 +111,7 @@ export default function QuantumPage() {
 				{/* Back button */}
 				<div className="mb-8">
 					<Link
-						href="/products/dashboard"
+						href="/products"
 						className="inline-flex items-center text-orange-400 hover:text-orange-300"
 					>
 						<ArrowLeft className="mr-2 h-4 w-4" />

@@ -49,9 +49,12 @@ export default function ProductsNavbar() {
 			<div className="container mx-auto px-4">
 				<div className="flex items-center justify-between">
 					{/* Logo */}
-					<div className="flex items-center text-white text-2xl font-bold">
+					<Link
+						href={"/"}
+						className="flex items-center text-white text-2xl font-bold"
+					>
 						<Sun className="h-8 w-8 text-orange-500 mr-3" />
-						<div className="w-36 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+						<div className="w-24 h-10 md:w-36 md:h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 							<Image
 								src="/logos/english_white_logo.png"
 								alt="Logo"
@@ -60,7 +63,7 @@ export default function ProductsNavbar() {
 							/>
 						</div>
 						<span className="text-orange-500 mx-1">-</span>
-						<div className="w-24 h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
+						<div className="w-18 h-10 md:w-24 md:h-14 relative  rounded-lg overflow-hidden flex items-center justify-center">
 							<Image
 								src="/logos/arabic_white_logo.png"
 								alt="Logo"
@@ -68,7 +71,7 @@ export default function ProductsNavbar() {
 								className="object-contain p-2"
 							/>
 						</div>
-					</div>
+					</Link>
 					{/* Desktop Navigation */}
 					<nav className="hidden md:flex items-center space-x-1 pr-30">
 						<Link
