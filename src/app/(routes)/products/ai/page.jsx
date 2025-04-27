@@ -16,7 +16,7 @@ export default function AIPage() {
 	// Update the map URL when city or cluster size changes
 	useEffect(() => {
 		// Map city values to actual city names for the file path
-		const cityName = city === "city1" ? "abu_dhabi" : "abu_dhabi";
+		const cityName = city === "city1" ? "abu_dhabi" : "dubai";
 		// Set the map URL with the correct city name and cluster size
 		setMapUrl(`/maps/${cityName}_${clusterSize}.html`);
 	}, [city, clusterSize]);
@@ -69,10 +69,20 @@ export default function AIPage() {
 									className="w-full"
 								>
 									<TabsList className="grid grid-cols-2 w-full">
-										<TabsTrigger value="city1">
+										<TabsTrigger
+											value="city1"
+											className={
+												"data-[state=active]:bg-orange-400"
+											}
+										>
 											Abu Dhabi
 										</TabsTrigger>
-										<TabsTrigger value="city2">
+										<TabsTrigger
+											value="city2"
+											className={
+												"data-[state=active]:bg-orange-400"
+											}
+										>
 											Dubai
 										</TabsTrigger>
 									</TabsList>
