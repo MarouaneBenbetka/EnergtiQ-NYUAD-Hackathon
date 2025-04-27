@@ -82,7 +82,7 @@ export default function AIPage() {
 							{/* Cluster Size Slider */}
 							<div className="w-full md:w-1/2">
 								<h3 className="text-xl font-bold mb-4">
-									Cluster Size: {clusterSize}
+									Batteries: {clusterSize}
 								</h3>
 								<div className="px-2">
 									<Slider
