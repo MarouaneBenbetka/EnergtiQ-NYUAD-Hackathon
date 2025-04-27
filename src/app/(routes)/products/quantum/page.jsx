@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, AtomIcon, Heater } from "lucide-react";
+import { ArrowLeft, AtomIcon } from "lucide-react";
+
 import {
 	Select,
 	SelectContent,
@@ -14,12 +15,50 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProductsNavbar from "@/components/general/products-navbar";
 
-// Reusable card component
+/* ────────────────────────────────────────────── */
+/* Shared data                                   */
+/* ────────────────────────────────────────────── */
+const molecules = [
+	{ value: "h2", label: "H₂ (dihydrogen)" },
+	{ value: "lih", label: "LiH (Lithium hydride)" },
+];
+
+const diagrams = [
+	{
+		id: "energy-eigenstates",
+		title: "Energy Eigenstates",
+		description: "Quantum energy levels of the molecule",
+	},
+	{
+		id: "ion-energy-eigenstates",
+		title: "+1 Ion Energy Eigenstates",
+		description: "Energy levels of the ionized molecule",
+	},
+	{
+		id: "heat-capacity",
+		title: "Heat Capacity",
+		description: "Thermal energy storage characteristics",
+	},
+	{
+		id: "ionization-energy",
+		title: "Ionization Energy",
+		description: "Energy required to remove an electron",
+	},
+	{
+		id: "free-energy",
+		title: "Free Energy",
+		description:
+			"Available energy for work at constant temperature and pressure",
+	},
+];
+
+/* ────────────────────────────────────────────── */
+/* Card component                                */
+/* ────────────────────────────────────────────── */
+
 function DiagramCard({ molecule, diagram, view }) {
 	return (
-		<div
-			className={`bg-gray-900 rounded-lg overflow-hidden border border-gray-800 shadow-lg flex flex-col`}
-		>
+		<div className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 shadow-lg flex flex-col">
 			{view === "full" && (
 				<div className="p-6 border-b border-gray-800">
 					<h3 className="text-2xl font-bold text-orange-400">
@@ -30,6 +69,7 @@ function DiagramCard({ molecule, diagram, view }) {
 					</p>
 				</div>
 			)}
+
 			<div
 				className={
 					view === "grid" ? "relative h-64" : "relative h-[500px]"
@@ -42,6 +82,7 @@ function DiagramCard({ molecule, diagram, view }) {
 					className="object-contain p-6"
 				/>
 			</div>
+
 			{view === "grid" && (
 				<div className="p-6">
 					<h3 className="text-xl font-bold text-orange-400">
@@ -56,47 +97,18 @@ function DiagramCard({ molecule, diagram, view }) {
 	);
 }
 
+/* ────────────────────────────────────────────── */
+/* Main page                                     */
+/* ────────────────────────────────────────────── */
 export default function QuantumPage() {
 	const [selectedMolecule, setSelectedMolecule] = useState("h2");
-
-	const molecules = [
-		{ value: "h2", label: "H₂ (dihydrogen)" },
-		{ value: "lih", label: "LiH (Lithium hydride)" },
-	];
-
-	const diagrams = [
-		{
-			id: "energy-eigenstates",
-			title: "Energy Eigenstates",
-			description: "Quantum energy levels of the molecule",
-		},
-		{
-			id: "ion-energy-eigenstates",
-			title: "+1 Ion Energy Eigenstates",
-			description: "Energy levels of the ionized molecule",
-		},
-		{
-			id: "heat-capacity",
-			title: "Heat Capacity",
-			description: "Thermal energy storage characteristics",
-		},
-		{
-			id: "Ionization-energy",
-			title: "Ionization Energy",
-			description: "Energy required to remove an electron",
-		},
-		{
-			id: "free-energy",
-			title: "Free Energy",
-			description:
-				"Available energy for work at constant temperature and pressure",
-		},
-	];
 
 	return (
 		<div className="min-h-screen bg-black text-white pt-20">
 			<ProductsNavbar />
+
 			<div className="container mx-auto px-4">
+				{/* Back button */}
 				<div className="mb-8">
 					<Link
 						href="/products/dashboard"
@@ -107,6 +119,7 @@ export default function QuantumPage() {
 					</Link>
 				</div>
 
+				{/* Header */}
 				<h1 className="text-4xl md:text-6xl font-bold mb-6">
 					Quantum Molecular Analysis
 				</h1>
@@ -116,7 +129,7 @@ export default function QuantumPage() {
 					technology.
 				</p>
 
-				{/* Molecule Selector */}
+				{/* Molecule selector */}
 				<div className="max-w-8xl mx-auto mb-12">
 					<div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6">
 						<div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
@@ -126,6 +139,7 @@ export default function QuantumPage() {
 									Select Molecule:
 								</h2>
 							</div>
+
 							<div className="w-full md:w-64">
 								<Select
 									value={selectedMolecule}
@@ -135,13 +149,13 @@ export default function QuantumPage() {
 										<SelectValue placeholder="Select a molecule" />
 									</SelectTrigger>
 									<SelectContent className="bg-gray-900 border-gray-700">
-										{molecules.map((molecule) => (
+										{molecules.map((m) => (
 											<SelectItem
-												key={molecule.value}
-												value={molecule.value}
+												key={m.value}
+												value={m.value}
 												className="text-white"
 											>
-												{molecule.label}
+												{m.label}
 											</SelectItem>
 										))}
 									</SelectContent>
@@ -149,39 +163,93 @@ export default function QuantumPage() {
 							</div>
 						</div>
 
-						{/* Diagram Tabs */}
-						<Tabs defaultValue="full" className="w-full">
-							<TabsList className="grid w-full max-w-md grid-cols-2 mb-6">
-								<TabsTrigger value="grid">
+						{/* Tabs: grid | full | compare */}
+						<Tabs defaultValue="grid" className="w-full">
+							<TabsList className="grid w-full max-w-md grid-cols-3 mb-6">
+								<TabsTrigger
+									value="grid"
+									className={
+										"data-[state=active]:bg-orange-400"
+									}
+								>
 									Grid View
 								</TabsTrigger>
-								<TabsTrigger value="full">
+								<TabsTrigger
+									value="full"
+									className={
+										"data-[state=active]:bg-orange-400"
+									}
+								>
 									Full View
+								</TabsTrigger>
+								<TabsTrigger
+									value="compare"
+									className={
+										"data-[state=active]:bg-orange-400"
+									}
+								>
+									Compare
 								</TabsTrigger>
 							</TabsList>
 
-							<TabsContent value="full">
+							{/* Grid mode */}
+							<TabsContent value="grid">
 								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-									{diagrams.map((diagram) => (
+									{diagrams.map((d) => (
 										<DiagramCard
-											key={diagram.id}
+											key={d.id}
 											molecule={selectedMolecule}
-											diagram={diagram}
+											diagram={d}
 											view="grid"
 										/>
 									))}
 								</div>
 							</TabsContent>
 
+							{/* Full mode */}
 							<TabsContent value="full">
 								<div className="space-y-10">
-									{diagrams.map((diagram) => (
+									{diagrams.map((d) => (
 										<DiagramCard
-											key={diagram.id}
+											key={d.id}
 											molecule={selectedMolecule}
-											diagram={diagram}
+											diagram={d}
 											view="full"
 										/>
+									))}
+								</div>
+							</TabsContent>
+
+							{/* Compare mode */}
+							<TabsContent value="compare">
+								<div className="space-y-12">
+									{diagrams.map((d) => (
+										<section key={d.id}>
+											<h3 className="text-lg font-bold text-orange-400 mb-4">
+												{d.title}
+											</h3>
+
+											<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+												{molecules.map((m) => (
+													<div
+														key={`${d.id}-${m.value}`}
+														className="flex flex-col space-y-2"
+													>
+														{/* Molecule label */}
+														<p className="text-center font-bold">
+															{m.label}
+														</p>
+
+														{/* Card */}
+														<DiagramCard
+															molecule={m.value}
+															diagram={d}
+															view="grid"
+														/>
+													</div>
+												))}
+											</div>
+										</section>
 									))}
 								</div>
 							</TabsContent>
@@ -189,7 +257,7 @@ export default function QuantumPage() {
 					</div>
 				</div>
 
-				{/* Explanation Section */}
+				{/* Explanation section (unchanged) */}
 				<div className="max-w-5xl mx-auto mb-20">
 					<h2 className="text-3xl font-bold mb-6 text-center">
 						Understanding Quantum Properties
@@ -213,6 +281,7 @@ export default function QuantumPage() {
 								charging and minimal energy loss during storage.
 							</p>
 						</div>
+
 						<div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6">
 							<h3 className="text-xl font-bold mb-4 text-orange-400">
 								Quantum Advantages
