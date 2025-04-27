@@ -1,89 +1,53 @@
-# Quantum Battery Placement & Heat Design Optimization
+<div style="text-align: center; background-color: white;">
+  <img src="figs/english_logo.png" alt="image" width="200"/>
+  <img src="figs/arabic_logo.png" alt="image" width="200"/>
+</div>
 
-This project is a **Next.js** web application focused on:
+## Problem statement
 
--   **Quantum battery placement optimization**
--   **Battery design for heat dissipation and thermal management**
+Batteries in the UAE and in the general gulf region suffer from the extreme heat conditions they are constantly exposed to. Battery storage loses efficiency through exposure to this heat, losing crucial solar energy generated throghout the day and needed for the night. Therefore, EnergetiQ addresses the following: _How to reduce the heat-induced inefficiency of batteries? If more efficienct batteries are available, how do we place them?_
 
-It integrates advanced simulations and visualization tools to assist in creating more efficient energy storage systems.
+## Our solution
 
----
+To tackle this problem, we developed a platform for material analysis and battery placement through quantum computation and machine learning. We put our full pipeline solution into a website aimed at selling our solution to customers like government entities and city planners. In this website, a costumer can explore the properties of different potential materials under heat. Once batteries are available to the user, their placement can be optimized based on population and heat maps.
 
-## Live Demo
+You can visit our _platform_ [here](https://energti-q-website.vercel.app/products).
 
-👉 [**View the Live Demo Here**](https://energti-q-nyuad.vercel.app)
+![](figs/website_demo.gif)
 
----
+## Ouantum Computing for Battery Design
 
-## Technologies Used
+Currently, we use a variational approach (VQE + QEOM algorithms) to analyze the properties of a material under heat. Through our quantum algorithm, we extract the energy spectrum of a molecule, which we can then use to compute properties of the material that characterize its response to heat. With phase estimation, we can likewise compute the energy spectrum with a higher accuracy and larger molecules. Currently, Microsoft's resource estimation estimates around 500k qubits needed for a fully fault-tolerant implementation of our phase estimation solution. Using this tool, we can optimize our approach before even having access to such systems. The code for our quantum solution is available [here](https://github.com/epelaaez/EnergetiQ/tree/main/battery_design).
 
--   **Next.js** (App Router structure)
--   **Shadcn/UI** (for beautiful, customizable UI components)
--   **React Query** (for API integration and caching)
+## Machine Learning for Battery Placement
 
----
+We optimized battery placement using Weighted K-Means Clustering, a machine learning technique that intelligently groups locations based on a custom efficiency score. This score combines population density and temperature data, rewarding areas with more people and cooler climates. By applying these scores as weights during clustering, the algorithm prioritizes regions where batteries can deliver the highest impact and long-term efficiency. This strategy ensures cost-effective deployment, greater energy accessibility, and supports a smarter, greener, and more resilient city infrastructure. The code for our machine learning solution is available [here](https://github.com/epelaaez/EnergetiQ/tree/main/battery_optimization).
 
-## Folder Structure
+## Roadmap into the future
 
-```
-src/
-└── app/
-    ├── (routes)/
-    │   └── (home)/
-    │       ├── layout.jsx
-    │       ├── page.jsx
-    │       └── products/
-    │           ├── ai/
-    │           ├── dashboard/
-    │           ├── quantum/
-    │           ├── layout.jsx
-    │           └── page.jsx
-    ├── dashboard/
-    ├── favicon.ico
-    ├── globals.css
-    └── components/
-```
+Our short, medium, and long term goals include:
 
-### Key Points:
+-   Now: variational approach and focus on the UAE region.
+-   In 6 months: run on hardware, optimize phase estimation approach, and focus on Asia and South America.
+-   In 3 years: run phase estimation approach on hardware and provide solution as SaaS (software as a service).
 
--   **(home)**: Main homepage route with its own `layout.jsx` and `page.jsx`.
--   **products/**: Dedicated sections for AI tools, Dashboard analytics, and Quantum simulations.
--   **dashboard/**: General dashboard features.
--   **components/**: Reusable UI elements for consistent styling.
+## Team
 
----
+Meet the team!
 
-## Environment Variables
+<div style="text-align: center;">
+  <img src="figs/team.jpg" alt="image" width="500"/>
+</div>
 
-This project requires a public API key for data fetching.  
-You must configure your environment variables using the `.env.example` file:
-
-```bash
-NEXT_PUBLIC_GEMINI_API_KEY=
-```
-
-**Steps:**
-
--   Copy `.env.example`
--   Insert your valid Gemini API key.
-
----
-
-## Setup Instructions
-
-1. Install dependencies:
-    ```bash
-    npm install
-    ```
-2. Run the development server:
-    ```bash
-    npm run dev
-    ```
-
----
-
-## Notes
-
--   **Shadcn/UI** ensures consistent, professional design components.
--   **React Query** handles all API communications and caching.
--   Built on **Next.js App Router** for a scalable and modular structure.
+-   Marouane Benbetka
+-   Epameinondas Douros
+-   Fyodor Amanov
+-   Omar Ibrahim
+-   Yara Kouttane
+-   Yonara Anastacio
+-   Emilio Peláez
+-   Omar Ibrahim
+-   Mohammad Abualrub
+-   Mahmoud Kassem
+-   Shahd Joudeh
+-   Nils Quetschlich
