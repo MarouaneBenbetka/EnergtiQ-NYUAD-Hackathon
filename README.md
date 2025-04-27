@@ -1,6 +1,5 @@
 <div style="text-align: center; background-color: white;">
-  <img src="figs/english_logo.png" alt="image" width="200"/>
-  <img src="figs/arabic_logo.png" alt="image" width="200"/>
+  <img src="figs/logo.png" alt="image" width="200"/>
 </div>
 
 ## Problem statement
