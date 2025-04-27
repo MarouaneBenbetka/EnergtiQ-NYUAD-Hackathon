@@ -453,7 +453,7 @@ export default function Home() {
 
 						<div className="md:w-1/2 relative h-80 md:h-96 w-full">
 							<Image
-								src="/placeholder.svg?height=600&width=800"
+								src="/images/landing-page/Team-photo.jpg"
 								alt="EnergetiQ Team"
 								fill
 								className="object-cover rounded-lg"

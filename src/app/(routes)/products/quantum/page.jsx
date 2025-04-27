@@ -60,8 +60,8 @@ export default function QuantumPage() {
 	const [selectedMolecule, setSelectedMolecule] = useState("h2");
 
 	const molecules = [
-		{ value: "h2", label: "H₂ (Hydrogen)" },
-		{ value: "li", label: "Li (Lithium)" },
+		{ value: "h2", label: "H₂ (dihydrogen)" },
+		{ value: "lih", label: "LiH (Lithium hydride)" },
 	];
 
 	const diagrams = [
