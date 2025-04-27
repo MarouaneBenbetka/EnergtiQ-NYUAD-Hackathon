@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import VideoBackground from "@/components/general/video-background";
 import Navbar from "@/components/general/navbar";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -30,9 +31,9 @@ export default function Home() {
 				<VideoBackground videoSrc="/video/video.mp4">
 					<div className="container mx-auto px-4 py-20 flex flex-col items-center text-center mt-50">
 						<div className="mb-6 flex items-center">
-							<Sun className="h-16 w-16 text-orange-500 mr-4" />
+							<Sun className="h-10 w-10 md:h-16 md:w-16 text-orange-500 mr-4" />
 							<h1 className="text-5xl md:text-7xl font-bold flex items-center">
-								<div className="w-56 h-20 relative  rounded-lg overflow-hidden flex items-center justify-center">
+								<div className="w-36 h-10 md:w-56 md:h-20 relative  rounded-lg overflow-hidden flex items-center justify-center">
 									<Image
 										src="/logos/english_white_logo.png"
 										alt="Logo"
@@ -41,7 +42,7 @@ export default function Home() {
 									/>
 								</div>
 								<span className="text-orange-500 mx-1">-</span>
-								<div className="w-32 h-24 relative  rounded-lg overflow-hidden flex items-center justify-center">
+								<div className="w-28 h-16 md:w-32 md:h-24 relative  rounded-lg overflow-hidden flex items-center justify-center">
 									<Image
 										src="/logos/arabic_white_logo.png"
 										alt="Logo"
@@ -58,6 +59,12 @@ export default function Home() {
 							Transforming solar energy with quantum computing and
 							artificial intelligence for a sustainable future.
 						</p>
+						<Link
+							href="/products"
+							className="bg-orange-500 hover:bg-orange-600 p-2 rounded-lg px-8"
+						>
+							Explore
+						</Link>
 
 						<div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
 							<ChevronDown className="h-10 w-10 text-orange-500" />
