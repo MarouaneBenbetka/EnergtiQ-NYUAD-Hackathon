@@ -70,7 +70,7 @@ export default function AIPage() {
 								>
 									<TabsList className="grid grid-cols-2 w-full">
 										<TabsTrigger value="city1">
-											Abu dhabi
+											Abu Dhabi
 										</TabsTrigger>
 										<TabsTrigger value="city2">
 											Dubai
